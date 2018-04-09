@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "antd-admin",
-  "version": "4.3.9",
+  "name": "brc-admin",
+  "version": "1.0.0",
   "dependencies": {
     "antd": "3.2.2",
     "axios": "^0.17.1",
