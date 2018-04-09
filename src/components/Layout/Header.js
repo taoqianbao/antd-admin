@@ -14,7 +14,7 @@ const Header = ({
   const menusProps = {
     menu,
     siderFold: false,
-    darkTheme: false,
+    darkTheme: true,
     isNavbar,
     handleClickNavMenu: switchMenuPopover,
     location,
