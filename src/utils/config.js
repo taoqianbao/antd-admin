@@ -26,4 +26,20 @@ module.exports = {
     v1test: `${APIV1}/test`,
     v2test: `${APIV2}/test`,
   },
+  aliyun: {
+    dev: {
+      iot: {
+        AppId: 'a120Z3dlEzIW8YwC',
+        AppKey: '24841829',
+        AppSecret: '8f67772f7f4a18f7828dd61a2dab9e7e'
+      }
+    },
+    production: {
+      iot: {
+        AppId: 'a120Z3dlEzIW8YwC',
+        AppKey: '24841652',
+        AppSecret: '66f7bb18cc60c2d31b441f57dd9f6067'
+      }
+    }
+  }
 }

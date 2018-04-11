@@ -3,6 +3,7 @@
   "name": "brc-admin",
   "version": "1.0.0",
   "dependencies": {
+    "@bone/iot-gateway": "^2.0.1",
     "antd": "^3.4.1",
     "axios": "^0.17.1",
     "babel-polyfill": "^6.23.0",
