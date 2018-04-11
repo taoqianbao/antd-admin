@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
+import { routerRedux } from 'dva/router'
 import { Button, Table } from 'antd'
 import queryString from 'query-string'
 import { config } from 'utils'

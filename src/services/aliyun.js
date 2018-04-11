@@ -5,7 +5,6 @@ const { aliyun } = api
 
 export function query (params) {
   const url = `${aliyun}/accountatt`
-  console.error(url)
   return request({
     url,
     method: 'get',
