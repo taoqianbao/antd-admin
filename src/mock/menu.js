@@ -1,6 +1,6 @@
 const { config } = require('./common')
-
 const { apiPrefix } = config
+
 let database = [
   {
     id: '1',
@@ -16,18 +16,25 @@ let database = [
     route: '/user',
   },
   {
-    id: '7',
-    bpid: '1',
-    name: 'Posts',
-    icon: 'shopping-cart',
-    route: '/post',
-  },
-  {
     id: '21',
     mpid: '-1',
     bpid: '2',
     name: 'User Detail',
     route: '/user/:id',
+  },
+  {
+    id: '9',
+    bpid: '1',
+    name: 'IOT',
+    icon: 'camera-o',
+    route: '/iotaccount',
+  },
+  {
+    id: '91',
+    bpid: '9',
+    mpid: '9',
+    name: 'IOT',
+    route: '/iotaccount',
   },
   {
     id: '3',
@@ -50,14 +57,14 @@ let database = [
     icon: 'heart-o',
     route: '/UIElement/iconfont',
   },
-  // {
-  //   id: '42',
-  //   bpid: '4',
-  //   mpid: '4',
-  //   name: 'DataTable',
-  //   icon: 'database',
-  //   route: '/UIElement/dataTable',
-  // },
+  {
+    id: '42',
+    bpid: '4',
+    mpid: '4',
+    name: 'DataTable',
+    icon: 'database',
+    route: '/UIElement/dataTable',
+  },
   {
     id: '43',
     bpid: '4',
@@ -74,22 +81,22 @@ let database = [
     icon: 'search',
     route: '/UIElement/search',
   },
-  // {
-  //   id: '45',
-  //   bpid: '4',
-  //   mpid: '4',
-  //   name: '56pxor',
-  //   icon: 'edit',
-  //   route: '/UIElement/editor',
-  // },
-  // {
-  //   id: '46',
-  //   bpid: '4',
-  //   mpid: '4',
-  //   name: 'layer (Function)',
-  //   icon: 'credit-card',
-  //   route: '/UIElement/layer',
-  // },
+  {
+    id: '45',
+    bpid: '4',
+    mpid: '4',
+    name: '56pxor',
+    icon: 'edit',
+    route: '/UIElement/editor',
+  },
+  {
+    id: '46',
+    bpid: '4',
+    mpid: '4',
+    name: 'layer (Function)',
+    icon: 'credit-card',
+    route: '/UIElement/layer',
+  },
   {
     id: '5',
     bpid: '1',
@@ -153,6 +160,13 @@ let database = [
     mpid: '62',
     name: 'Test Navigation22',
     route: '/navigation/navigation2/navigation2',
+  },
+  {
+    id: '7',
+    bpid: '1',
+    name: 'Posts',
+    icon: 'shopping-cart',
+    route: '/post',
   },
 ]
 

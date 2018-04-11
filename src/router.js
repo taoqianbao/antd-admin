@@ -64,7 +64,11 @@ const Routers = function ({ history, app }) {
       path: '/post',
       models: () => [import('./models/post')],
       component: () => import('./routes/post/'),
-    },
+    }, {
+      path: '/iotaccount',
+      models: () => [import('./models/iotaccount')],
+      component: () => import('./routes/iotaccount/'),
+    }
   ]
 
   return (
@@ -74,17 +78,17 @@ const Routers = function ({ history, app }) {
           <Switch>
             <Route exact path="/" render={() => (<Redirect to="/dashboard" />)} />
             {
-            routes.map(({ path, ...dynamics }, key) => (
-              <Route key={key}
-                exact
-                path={path}
-                component={dynamic({
-                  app,
-                  ...dynamics,
-                })}
-              />
-            ))
-          }
+              routes.map(({ path, ...dynamics }, key) => (
+                <Route key={key}
+                  exact
+                  path={path}
+                  component={dynamic({
+                    app,
+                    ...dynamics,
+                  })}
+                />
+              ))
+            }
             <Route component={error} />
           </Switch>
         </App>
