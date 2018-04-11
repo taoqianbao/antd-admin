@@ -8,4 +8,6 @@ module.exports = app => {
   router.get('/', controller.home.index);
   router.get('/aliyun', controller.aliyun.index);
   router.get('/aliyun/accountatt', controller.aliyun.accountAtt);
+  router.get('/aliyun/productInfoList', controller.aliyun.productInfoList);
+  router.get('/aliyun/thing/product/properties/get', controller.aliyun.queryPropertyByProductKey);
 };

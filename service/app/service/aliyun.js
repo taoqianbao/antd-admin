@@ -1,58 +1,65 @@
 'use strict';
 
 /* eslint prefer-destructuring: ["error", {AssignmentExpression: {array: true}}] */
-const Service = require('egg').Service;
-const Client = require('aliyun-api-gateway').Client;
-const UUID = require('uuid');
+/* eslint no-unused-vars:["warn"] */
+const BaseService = require('./base');
 
-/**
- * Gateway for aliyun
- * @param {*} param0 paramters
- * @return {Object} return value
- */
-const Gateway = async ({
-  url, apiVer, params, iotToken, config,
-}) => {
-  // 用appKey和appSecret初始化客户端
-  const client = new Client(config.AppKey, config.AppSecret);
-  const result = await client.post(url, {
-    data: {
-      id: UUID.v1(), // 请求唯一标识，必填
-      version: '1.0', // 协议版本，固定值1.0
-      request: {
-        iotToken, // iottoken，选填
-        apiVer, // api版本，必填
-      },
-      params: params || {}, // 业务参数，必填
-    },
-    headers: {
-      accept: 'application/json',
-    },
-    timeout: 3000,
-  });
-  return result;
-};
+const ALIYUN_IOT_APIURLPREFIX = 'http://api.link.aliyun.com';
 
-class AliyunService extends Service {
-  async accountAtt() {
-    const { ctx, config } = this;
+class AliyunService extends BaseService {
+
+  /**
+   * account attributes
+   * @param {*} options parameters
+   * @return {Object} return value
+   */
+  async accountAtt(options = {}) {
     const params = {
-      url: 'http://api.link.aliyun.com/iotx/account/listAttr',
+      url: `${ALIYUN_IOT_APIURLPREFIX}/iotx/account/listAttr`,
       apiVer: '1.0.4',
       params: {
         request: 'value1',
       },
-      config: {
-        AppKey: config.aliyun.iot.AppKey,
-        AppSecret: config.aliyun.iot.AppSecret,
-      },
     };
 
-    return Gateway(params);
+    return this.Gateway(params);
     //   .then(res => console.log(res))
     //   .catch(res => console.log(res));
 
   }
+
+  /**
+   * helpers https://linkdevelop.aliyun.com/docCenter#/apiDetail/817/1928
+   * @param {*} options parameters
+   * @return {Object} return value
+   */
+  async productInfoListGet(options = {}) {
+    const params = {
+      url: `${ALIYUN_IOT_APIURLPREFIX}/thing/product/list/get`,
+      apiVer: '1.0.0',
+      params: {
+        pageNo: options.pageNo || 1,
+        pageSize: options.pageSize || 10,
+        status: options.status || 0,
+        nodeType: options.nodeType || 0,
+      },
+    };
+
+    return this.Gateway(params);
+  }
+
+  async queryPropertyByProductKey(productKey) {
+    const params = {
+      url: `${ALIYUN_IOT_APIURLPREFIX}/thing/product/properties/get`,
+      apiVer: '1.0.0',
+      params: {
+        productKey,
+      },
+    };
+    return this.Gateway(params);
+  }
+
+
 }
 
 module.exports = AliyunService;

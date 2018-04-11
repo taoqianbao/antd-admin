@@ -2,12 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
 import { routerRedux } from 'dva/router'
-import { Button, Table } from 'antd'
+import { Button } from 'antd'
 import queryString from 'query-string'
-import { config } from 'utils'
-import styles from './index.less'
-import { Page } from 'components'
 
+import { Page } from 'components'
 import List from './List'
 
 const iotAccount = ({
@@ -33,7 +31,6 @@ const iotAccount = ({
     },
   }
 
-
   return (
     <Page>
       <Button type="primary">查询</Button>
@@ -44,8 +41,10 @@ const iotAccount = ({
 
 iotAccount.propTypes = {
   form: PropTypes.object,
+  iotaccount: PropTypes.object,
   dispatch: PropTypes.func,
   loading: PropTypes.object,
+  location: PropTypes.object,
 }
 
 export default connect(({ iotaccount, loading }) => ({ iotaccount, loading }))(iotAccount)
